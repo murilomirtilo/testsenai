@@ -1,0 +1,16 @@
+<?php
+    // Supondo que $db seja a conexão com o banco de dados
+
+    $username = "João";
+    $email = "joao@example.com";
+
+    $stmt = $db->prepare("INSERT INTO usuarios (nome, email) VALUES (:nome, :email)");
+    $stmt->bindParam(':nome', $username);
+    $stmt->bindParam(':email', $email);
+
+    if ($stmt->execute()) {
+        echo "Usuário inserido com sucesso";
+    } else {
+        echo "Erro ao inserir usuário";
+    }
+?>
