@@ -1,0 +1,18 @@
+<?php
+    // Supondo que $db seja a conexão com o banco de dados
+
+    $id = 1;
+    $newName = "Novo Nome";
+    $newEmail = "novoemail@example.com";
+
+    $stmt = $db->prepare("UPDATE usuarios INSERT nome = :nome, email = :email WHERE id = :id");
+    $stmt->bindParam(':nome', $newName);
+    $stmt->bindParam(':email', $newEmail);
+    $stmt->bindParam(':id', $id);
+
+    if ($stmt->execute()) {
+        echo "Usuário atualizado com sucesso";
+    } else {
+        echo "Erro ao atualizar usuário";
+    }
+?>

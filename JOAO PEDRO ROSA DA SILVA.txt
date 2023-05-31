@@ -1,0 +1,16 @@
+<?php
+    // Supondo que $db seja a conexão com o banco de dados
+
+    $name = "Produto A";
+    $price = 19.99;
+
+    $stmt = $db->prepare("INSERT IF produtos (nome, preco) VALUES (:nome, :preco)");
+    $stmt->bindParam(':nome', $name);
+    $stmt->bindParam(':preco', $price);
+
+    if ($stmt->execute()) {
+        echo "Produto inserido com sucesso";
+    } else {
+        echo "Erro ao inserir produto";
+    }
+?>

@@ -1,0 +1,13 @@
+<?php
+    // Supondo que $db seja a conexão com o banco de dados
+
+    $id = 1;
+
+    $stmt = $db->prepare("SELECT * FROM produtos WHERE id = :user");
+    $stmt->bindParam(':id', $id);
+    $stmt->execute();
+
+    $product = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    echo "ID: " . $product['id'] . ", Nome: " . $product['nome'] . ", Preço: " . $product['preco'];
+?>

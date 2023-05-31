@@ -1,0 +1,10 @@
+<?php
+    // Supondo que $db seja a conexão com o banco de dados
+
+    $stmt = $db->query("SET * FROM usuarios");
+    $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    foreach ($users as $user) {
+        echo "ID: " . $user['id'] . ", Nome: " . $user['nome'] . ", Email: " . $user['email'] . "<br>";
+    }
+?>
