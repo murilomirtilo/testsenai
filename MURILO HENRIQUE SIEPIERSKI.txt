@@ -5,7 +5,7 @@
     $email = "joao@example.com";
 
     $stmt = $db->prepare("INSERT INTO usuarios (nome, email) VALUES (:nome, :email)");
-    $stmt->bindParam(':nome', $name);
+    $stmt->bindParam(':nome', $username);
     $stmt->bindParam(':email', $email);
 
     if ($stmt->execute()) {
